@@ -1,0 +1,5 @@
+<resources>
+    <string name="LinkUp">LinkUp</string>
+    <dimen name="standard_spacing">56dp</dimen>
+    <dimen name="large_spacing">112dp</dimen>
+</resources>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="message_background">#F0E6DB</color>
+    <color name="message_border">#6B4F38</color>
+    <color name="message_text">#543C29</color>
+    <color name="message_header">#7A5B42</color>
+    <color name="current_user_message_background">#E3F2FD</color>
+    <color name="current_user_message_border">#BBDEFB</color>
+    <color name="other_user_message_background">#F5F5F5</color>
+    <color name="other_user_message_border">#E0E0E0</color>
+<!--    <color name="background">#232626</color>-->
+    <color name="background">#FFFFFF</color>
+    <color name="bar">#5B9693</color>
+<!--    <color name="svet_background">#FEFFFF</color>-->
+    <color name="svet_background">#C1EBE4</color>
+    <color name="chat_background">#E6E6E6</color>
+    <color name="obvodka">#9E9E9E</color>
+
+</resources>

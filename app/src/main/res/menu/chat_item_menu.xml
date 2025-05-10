@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_invite"
+        android:title="Пригласить" />
+    <item
+        android:id="@+id/action_edit_name"
+        android:title="Изменить название" />
+    <item
+        android:id="@+id/action_delete"
+        android:title="Удалить" />
+    <item
+        android:id="@+id/action_leave"
+        android:title="Выйти из чата" />
+    <item
+        android:id="@+id/action_add_to_blacklist"
+        android:title="Добавить в чёрный список" />
+</menu>
