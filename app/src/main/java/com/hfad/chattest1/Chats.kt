@@ -167,7 +167,7 @@ class Chats : AppCompatActivity() {
                 it.name.toLowerCase(Locale.getDefault())
                     .contains(query.toLowerCase(Locale.getDefault()))
             })//
-        }
+        }//
 //
         // Обновляем адаптер списка чатов с отфильтрованными данными
         chatsAdapter.updateList(filteredChatsList)//
