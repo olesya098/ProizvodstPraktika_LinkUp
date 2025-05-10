@@ -170,7 +170,7 @@ class Chats : AppCompatActivity() {
         }
 //
         // Обновляем адаптер списка чатов с отфильтрованными данными
-        chatsAdapter.updateList(filteredChatsList)
+        chatsAdapter.updateList(filteredChatsList)//
     }
 
     private fun loadNavigationProfilePhoto() {
