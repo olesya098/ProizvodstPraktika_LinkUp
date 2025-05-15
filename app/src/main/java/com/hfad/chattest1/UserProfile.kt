@@ -1,5 +1,5 @@
 package com.hfad.chattest1
-
+//Данные профиля
 data class UserProfile(
     val firstName: String = "",
     val lastName: String = "",
