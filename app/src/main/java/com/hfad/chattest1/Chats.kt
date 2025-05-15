@@ -42,41 +42,47 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
+// Класс Chats, который наследуется от AppCompatActivity (базовый класс для Activity в Android)
 class Chats : AppCompatActivity() {
-    private lateinit var chatsRecyclerView: RecyclerView
-    private lateinit var chatsAdapter: ChatsAdapter
-    private val chatsList = mutableListOf<Chat>()
-    private val filteredChatsList = mutableListOf<Chat>()
-    private lateinit var database: DatabaseReference
-    private lateinit var databaseim: DatabaseReference
-    private lateinit var blacklistRef: DatabaseReference
-    private lateinit var auth: FirebaseAuth
-    private lateinit var searchEditText: EditText
-    private lateinit var drawerLayout: DrawerLayout
+    // Объявление переменных класса с отложенной инициализацией (lateinit)
+    private lateinit var chatsRecyclerView: RecyclerView // RecyclerView для отображения списка чатов
+    private lateinit var chatsAdapter: ChatsAdapter // Адаптер для RecyclerView
+    private val chatsList = mutableListOf<Chat>() // Основной список чатов
+    private val filteredChatsList = mutableListOf<Chat>() // Отфильтрованный список чатов
+    private lateinit var database: DatabaseReference // Ссылка на базу данных Firebase (чаты)
+    private lateinit var databaseim: DatabaseReference // Ссылка на базу данных Firebase (пользователи)
+    private lateinit var blacklistRef: DatabaseReference // Ссылка на базу данных Firebase (черный список)
+    private lateinit var auth: FirebaseAuth // Объект для аутентификации Firebase
+    private lateinit var searchEditText: EditText // Поле для поиска чатов
+    private lateinit var drawerLayout: DrawerLayout // Контейнер для бокового меню (Navigation Drawer)
 
+    // Основной метод, вызываемый при создании Activity
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_chats)
+        enableEdgeToEdge() // Включаем отображение контента под системными барами (статус-бар и навигационная панель)
+        setContentView(R.layout.activity_chats) // Устанавливаем макет из activity_chats.xml
 
+        // Получаем ID фонового изображения из Intent и устанавливаем его как фон
         val backgroundResId = intent.getIntExtra("background_theme", R.drawable.photo1)
         findViewById<View>(android.R.id.content).setBackgroundResource(backgroundResId)
 
+        // Инициализация ссылок на базу данных Firebase
+        database = Firebase.database.reference.child("chats") // Ссылка на раздел "chats"
+        auth = FirebaseAuth.getInstance() // Получаем экземпляр FirebaseAuth
+        databaseim = Firebase.database.reference.child("users") // Ссылка на раздел "users"
+        blacklistRef = Firebase.database.reference.child("BlackList") // Ссылка на раздел "BlackList"
+        drawerLayout = findViewById(R.id.drawerLayout) // Находим DrawerLayout по ID (основной контейнер для бокового меню)
 
-        database = Firebase.database.reference.child("chats")
-        auth = FirebaseAuth.getInstance()
-        databaseim = Firebase.database.reference.child("users")
-        blacklistRef = Firebase.database.reference.child("BlackList")
-        drawerLayout = findViewById(R.id.drawerLayout)//вся страничка
-
-        setupToolbar()
-        setupSearch()
-        setupRecyclerView()
-        setupSideNavigation()
-        loadChats()
-        setupNavigationUserInfo()
-        loadNavigationProfilePhoto()
+        // Вызов вспомогательных методов для настройки различных компонентов
+        setupToolbar() // Настраиваем Toolbar (верхнюю панель)
+        setupSearch() // Настраиваем поиск
+        setupRecyclerView() // Настраиваем RecyclerView
+        setupSideNavigation() // Настраиваем боковое меню
+        loadChats() // Загружаем список чатов
+        setupNavigationUserInfo() // Настраиваем информацию о пользователе в боковом меню
+        loadNavigationProfilePhoto() // Загружаем фото профиля в боковое меню
     }
+
 
     private fun setupToolbar() {
 
