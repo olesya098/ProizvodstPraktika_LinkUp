@@ -120,7 +120,7 @@ class MainActivity : AppCompatActivity() {
     private fun setupBackgroundButton() {
         val backgroundButton = ImageButton(this).apply {
             layoutParams = LinearLayout.LayoutParams(48.dpToPx(), 48.dpToPx())
-            setImageResource(R.drawable.wallpaper_24) // Add this icon to your drawable resources
+            setImageResource(R.drawable.wallpaper_24)
             background = AppCompatResources.getDrawable(context, R.drawable.button_bac)
             this.setBackgroundColor(ContextCompat.getColor(context, R.color.bar))
             contentDescription = "Изменить фон"
